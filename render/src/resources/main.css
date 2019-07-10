@@ -67,11 +67,27 @@ body {
     margin-top: 5px !important;
 }
 
+.full-width{
+  width: 98%;
+}
+
+.capital-header{
+  color: #7a7a7a;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase
+}
+
+.spacer {
+  margin: 10px !important;
+}
+
 .load-your-own-cont {
   text-align: center;
 }
 
 .left-pane {
+  padding-right: 0px !important;
   width: 20%;;
   height: calc(100% - 35px);
   position: absolute;
@@ -86,6 +102,7 @@ body {
 }
 
 .right-pane {
+  padding-left: 0px !important;
   width: 20%;;
   height: calc(100% - 35px);
   position: absolute;
@@ -99,7 +116,6 @@ body {
 
 /* ----- SLIDER CSS BEGIN ---- */
 .slider-cont {
-  width: 100%; /* Width of the outside container */
   margin: 10px;
 }
 
@@ -107,7 +123,6 @@ body {
 .slider {
   -webkit-appearance: none;
   width: 100%;
-  margin-left: 10px;
   height: 15px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -127,3 +142,12 @@ body {
   cursor: pointer;
 }
 /* ----- SLIDER CSS END ----- */
+
+/* PREVIEW STYLES BEGIN */
+.background-cont {
+  height: 98%;
+  width: 98%;
+  border: solid 1px lightgrey;
+  margin: 0px auto;
+}
+/* PREVIEW STYLES END */

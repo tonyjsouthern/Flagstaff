@@ -1,88 +1,54 @@
 <template>
 
-  <div class="left-pane box">
+  <div class="left-pane centered box">
 
-    <aside class="menu">
-      <p class="menu-label">
-        Image tools
-      </p>
+    <p class="title is-6 capital-header">Image Tools:</p>
+    <hr>
+    <button class="button full-width">Select Frame</button>
+    <p class="title is-8 capital-header spacer">Adjust Size</p>
+    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
 
-      <ul class="menu-list">
-        <li>
-          <a">Frame</a>
-          <ul>
-            <li><a>Load Frame</a></li>
-            <li><a>Height/width:</a></li>
-            <li class="margin-top-5"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></li>
-          </ul>
-        </li>
-      </ul>
+    <hr>
 
-      <ul class="menu-list">
-        <li>
-          <a">Background</a>
-          <ul>
-            <li><a>Load Background</a></li>
-          </ul>
-        </li>
-      </ul>
+    <button class="button full-width">Select Background</button>
+    <p class="title is-8 capital-header spacer">Adjust Size</p>
+    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
 
-      <ul class="menu-list">
-        <li>
-          <a">Screenshot</a>
-          <ul>
-            <li><a>Load Screenshot</a></li>
-            <li><a>Height/width:</a></li>
-            <li class="margin-top-5"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></li>
-          </ul>
-        </li>
-      </ul>
-    </aside>
+    <hr>
 
-    <button class="button is-primary">Save Image</button>
+    <button class="button full-width">Select Screenshot</button>
+    <p class="title is-8 capital-header spacer">Adjust width</p>
+    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
+    <p class="title is-8 capital-header spacer">Adjust height</p>
+    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
+
+    <hr>
+
+    <button class="button is-primary full-width">Save Image</button>
 
     </div>
 
     <div class="workspace box">
-      Preview
+      <div class="background-cont">
+        </div>
       </div>
 
-      <div class="right-pane box">
-        <aside class="menu">
-          <p class="menu-label">
-            Text tools
-          </p>
+      <div class="right-pane centered box">
+        <p class="title is-6 capital-header">Text Tools:</p>
+        <hr>
 
-          <ul class="menu-list">
-            <li>
-              <a">Frame</a>
-              <ul>
-                <li><a>Load Frame</a></li>
-                <li><a>Height/width:</a></li>
-                <li class="margin-top-5"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></li>
-              </ul>
-            </li>
-          </ul>
+        <p class="title is-8 capital-header spacer">Icon Pack</p>
+        <input class="input" placeholder="Moonshine"></input>
 
-          <ul class="menu-list">
-            <li>
-              <a">Background</a>
-              <ul>
-                <li><a>Load Background</a></li>
-              </ul>
-            </li>
-          </ul>
+        <hr>
 
-          <ul class="menu-list">
-            <li>
-              <a">Screenshot</a>
-              <ul>
-                <li><a>Load Screenshot</a></li>
-                <li><a>Height/width:</a></li>
-                <li class="margin-top-5"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></li>
-              </ul>
-            </li>
-          </ul>
-        </aside
-        </div>
+        <p class="title is-8 capital-header spacer">Launcher</p>
+        <input class="input" placeholder="Moonshine"></input>
+
+        <hr>
+
+        <p class="title is-8 capital-header spacer">Wallpaper</p>
+        <input class="input" placeholder="Moonshine"></input>
+
+      </div>
   </template>
