@@ -1,0 +1,129 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.nav {
+  background-color: #00d1b2;
+  width: 100%;
+  height: 35px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.box {
+  border: none !important;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.logo {
+ float: left;
+}
+.logo-text {
+    color: white !important;
+    font-family: 'Special Elite', cursive;
+    font-size: 28px !important;
+    padding-left: 5px;
+}
+
+.window-icons {
+  margin: 5px;
+  float: right;
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.card-cont {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.card-cont:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.selection-container {
+  text-align: center;s
+}
+
+.text-margin-8 {
+  margin: 8px !important;
+}
+
+.margin-top-5 {
+    margin-top: 5px !important;
+}
+
+.load-your-own-cont {
+  text-align: center;
+}
+
+.left-pane {
+  width: 20%;;
+  height: calc(100% - 35px);
+  position: absolute;
+}
+
+.workspace {
+  position: relative;
+  left: 20%;
+  width: 60%;
+  height: calc(100% - 35px);
+  margin: 0px !important;
+}
+
+.right-pane {
+  width: 20%;;
+  height: calc(100% - 35px);
+  position: absolute;
+  top: 35px;
+  left: 80%;
+}
+
+.centered {
+  text-align: center !important;
+}
+
+/* ----- SLIDER CSS BEGIN ---- */
+.slider-cont {
+  width: 100%; /* Width of the outside container */
+  margin: 10px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin-left: 10px;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00d1b2;
+  cursor: pointer;
+}
+/* ----- SLIDER CSS END ----- */
