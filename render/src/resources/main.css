@@ -11,7 +11,8 @@ body {
 }
 
 .nav {
-  background-color: #00d1b2;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
   width: 100%;
   height: 35px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
@@ -32,8 +33,8 @@ body {
 }
 .logo-text {
     color: white !important;
-    font-family: 'Special Elite', cursive;
-    font-size: 28px !important;
+    font-family: 'Yellowtail', cursive;
+    font-size: 22px !important;
     padding-left: 5px;
 }
 
@@ -42,6 +43,11 @@ body {
   float: right;
   color: white !important;
   font-size: 18px !important;
+}
+
+.window-icons i {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .card-cont {
@@ -91,6 +97,7 @@ body {
   width: 20%;;
   height: calc(100% - 35px);
   position: absolute;
+  margin-bottom: 0px !important;
 }
 
 .workspace {
@@ -113,6 +120,76 @@ body {
 .centered {
   text-align: center !important;
 }
+
+.tool-bar {
+  position: absolute;
+  width: 40px;
+  text-align: center;
+  left: 0px;
+  top: 0px;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #2B86C5 0%, #784BA0 50%, #FF3CAC 100%);
+  height: 100%;
+  font-size: 22px;
+  color: white;
+}
+
+.tool-specifics {
+  padding-left: 40px;
+}
+
+
+/* ----- BEGIN TOOL BAR SPECIFIC STYLES */
+.frame:hover {
+  color: lightgrey;
+}
+
+.background:hover {
+  color: lightgrey;
+}
+
+.screenshot:hover {
+  color: lightgrey;
+}
+
+.notch:hover {
+  color: lightgrey;
+}
+
+.text:hover {
+  color: lightgrey;
+}
+
+.settings:hover {
+  color: lightgrey;
+}
+
+.save:hover {
+  color: lightgrey;
+}
+
+.effects:hover {
+  color: lightgrey;
+}
+
+.back:hover {
+  color: lightgrey;
+}
+
+.back {
+  position: absolute;
+  bottom: 0px;
+  padding-left: 8px;
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: white;
+}
+
+.second-frame {
+  z-index: 4;
+}
+/* ----- END TOOLBAR SPECIFIC STYLES ----- */
+
 
 /* ----- SLIDER CSS BEGIN ---- */
 .slider-cont {
@@ -138,16 +215,119 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #00d1b2;
+  background: #FF3CAC;
   cursor: pointer;
 }
 /* ----- SLIDER CSS END ----- */
 
+/* ----- SWITCH CSS BEGIN ----- */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider-switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider-switch:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider-switch {
+  background-color: #FF3CAC;
+}
+
+input:focus + .slider-switch {
+  box-shadow: 0 0 1px #FF3CAC;
+}
+
+input:checked + .slider-switch:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider-switch.round {
+  border-radius: 34px;
+}
+
+.slider-switch.round:before {
+  border-radius: 50%;
+}
+/* ----- SWITCH CSS END ----- */
+
 /* PREVIEW STYLES BEGIN */
-.background-cont {
+.workspace-cont {
   height: 98%;
   width: 98%;
   border: solid 1px lightgrey;
   margin: 0px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.frame-cont {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.frame-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.background-cont {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.background-image {
+  position: absolute;
+  margin-right: -50%;
+  z-index: 0;
+  object-fit: cover;
+  max-width: 200%;
+}
+
+.screenshot-image{
+  position: absolute;
+  z-index: 2;
 }
 /* PREVIEW STYLES END */

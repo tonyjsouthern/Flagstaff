@@ -4,13 +4,21 @@
     <meta charset="utf-8">
     <title>Aurelia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/resources/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <link rel="stylesheet" href="./src/resources/main.css">
   </head>
 
+  <script>
+    var remote = require('electron');
+    window.ipc = require('electron').ipcRenderer;
+    window.remote = require('electron').remote;
+    window.fs = remote.require('fs')
+  </script>
+
   <body aurelia-app="main">
+    <script src="https://unpkg.com/interactjs@1.4.14/dist/interact.js" type="text/javascript"></script>
     <script src="scripts/vendor-bundle.js"></script>
     <script>SystemJS.import("aurelia-bootstrapper").catch(function(err) { console.log(err); })</script>
   </body>

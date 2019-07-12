@@ -13,7 +13,6 @@ export class App {
  ]);
 }
 
-
   constructor(router){
     this.router = router;
     this.expanded = false;

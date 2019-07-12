@@ -1,54 +1,94 @@
 <template>
-
-  <div class="left-pane centered box">
-
-    <p class="title is-6 capital-header">Image Tools:</p>
-    <hr>
-    <button class="button full-width">Select Frame</button>
-    <p class="title is-8 capital-header spacer">Adjust Size</p>
-    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
-
-    <hr>
-
-    <button class="button full-width">Select Background</button>
-    <p class="title is-8 capital-header spacer">Adjust Size</p>
-    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
-
-    <hr>
-
-    <button class="button full-width">Select Screenshot</button>
-    <p class="title is-8 capital-header spacer">Adjust width</p>
-    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
-    <p class="title is-8 capital-header spacer">Adjust height</p>
-    <div class="slider-cont"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
-
-    <hr>
-
-    <button class="button is-primary full-width">Save Image</button>
-
-    </div>
-
-    <div class="workspace box">
-      <div class="background-cont">
-        </div>
+   <div class="left-pane centered box">
+      <div class="tool-bar">
+         <div click.delegate="genericToggle('frame')" class="tool-cont frame">
+            <i class="fas fa-mobile"></i>
+         </div>
+         <div click.delegate="genericToggle('background')" class="tool-cont background">
+            <i class="far fa-image"></i>
+         </div>
+         <div click.delegate="genericToggle('screenshot')" class="tool-cont screenshot">
+            <i class="fas fa-camera-retro"></i>
+         </div>
+         <div class="tool-cont save">
+            <i class="fas fa-save"></i>
+         </div>
+         <a route-href="select">
+            <div class="tool-cont back">
+               <i class="fas fa-arrow-left"></i>
+            </div>
+         </a>
       </div>
-
-      <div class="right-pane centered box">
-        <p class="title is-6 capital-header">Text Tools:</p>
-        <hr>
-
-        <p class="title is-8 capital-header spacer">Icon Pack</p>
-        <input class="input" placeholder="Moonshine"></input>
-
-        <hr>
-
-        <p class="title is-8 capital-header spacer">Launcher</p>
-        <input class="input" placeholder="Moonshine"></input>
-
-        <hr>
-
-        <p class="title is-8 capital-header spacer">Wallpaper</p>
-        <input class="input" placeholder="Moonshine"></input>
-
+      <div class="tool-specifics">
+         <div class="frame-tools" class.bind="frame ? '' : 'hidden'">
+            <p class="title is-6 capital-header">Frame Tools</p>
+            <hr>
+            <button class="button full-width" click.delegate="selectFrame()">Select Frame</button>
+            <hr>
+            <p class="title is-8 capital-header spacer">Size</p>
+            <div class="slider-cont"><input value.bind="frameHeight" type="range" min="10" max="100" value="60" class="slider"></div>
+         </div>
+         <div class="background-tools" class.bind="background ? '' : 'hidden'">
+            <p class="title is-6 capital-header">Background Tools</p>
+            <hr>
+            <button class="button full-width" click.delegate="selectBackground()">Select Background</button>
+            <hr>
+            <p class="title is-8 capital-header spacer">Size</p>
+            <div class="slider-cont"><input value.bind="backgroundHeight" type="range" min="1" max="106" value="100" class="slider"></div>
+            <p class="title is-8 capital-header spacer">Blur</p>
+            <div class="slider-cont"><input value.bind="backgroundBlur" type="range" min="0" max="5" value="0" class="slider"></div>
+         </div>
+         <div class="screenshot-tools" class.bind="screenshot ? '' : 'hidden'">
+            <p class="title is-6 capital-header">Screenshot Tools</p>
+            <hr>
+            <button class="button full-width" click.delegate="selectScreenshot()">Select screenshot</button>
+            <hr>
+            <p class="title is-8 capital-header spacer">Height</p>
+            <div class="slider-cont"><input type="range" value.bind="screenshotHeight" min="200" max="1500" value="500" class="slider"></div>
+            <input value.bind="screenshotHeight" min="200" max="1500" value="500" class="input" type="number"></input>
+            <hr>
+            <p class="title is-8 capital-header spacer">Width</p>
+            <div class="slider-cont"><input type="range" value.bind="screenshotWidth" min="1" max="1500" value="300" class="slider"></div>
+            <input value.bind="screenshotWidth" min="200" max="1500" value="300" class="input" type="number"></input>
+            <hr>
+            <p class="title is-8 capital-header spacer">Border Radius</p>
+            <div class="slider-cont"><input type="range" value.bind="screenshotRadius" min="0" max="100" value="0" class="slider" id="myRange"></div>
+            <input value.bind="screenshotRadius" min="0" max="100" value="0" class="input" type="number"></input>
+            <hr>
+            <p class="title is-8 capital-header spacer">Apply Second Frame</p>
+            <label class="switch" click.delegate="logFrame(displaySecondFrame)">
+            <input checked.bind="displaySecondFrame"  type="checkbox">
+            <span class="slider-switch round"></span>
+            </label>
+         </div>
       </div>
-  </template>
+   </div>
+   <div class="workspace box">
+      <div class="workspace-cont">
+         <div class="frame-cont">
+            <img class="frame-image" style="height: ${frameHeight}%" src="${frameUrl}">
+         </div>
+         <div class="frame-cont second-frame" class.bind="displaySecondFrame ? '' : 'hidden'">
+            <img class="frame-image" style="height: ${frameHeight}%" src="${frameUrl}">
+         </div>
+         <div class="background-cont">
+            <img class="background-image draggable" style="height: ${backgroundHeight}%; filter: blur(${backgroundBlur}px);" src="${backgroundUrl}">
+         </div>
+         <div class="screenshot-cont">
+            <img class.bind="screenshotUrl ? '' : 'hidden'" class="screenshot-image draggable" style="height: ${screenshotHeight}px; width: ${screenshotWidth}px; border-radius: ${screenshotRadius}px;" src="${screenshotUrl}">
+         </div>
+      </div>
+   </div>
+   <div class="right-pane centered box">
+      <p class="title is-6 capital-header">Text Tools:</p>
+      <hr>
+      <p class="title is-8 capital-header spacer">Icon Pack</p>
+      <input class="input" placeholder="Moonshine"></input>
+      <hr>
+      <p class="title is-8 capital-header spacer">Launcher</p>
+      <input class="input" placeholder="Moonshine"></input>
+      <hr>
+      <p class="title is-8 capital-header spacer">Wallpaper</p>
+      <input class="input" placeholder="Moonshine"></input>
+   </div>
+</template>
