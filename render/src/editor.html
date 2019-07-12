@@ -64,7 +64,9 @@
       </div>
    </div>
    <div class="workspace box">
-      <div class="workspace-cont">
+     <div class="resize-cont resizable">
+       <div class="resize-left"></div>
+      <div data-x=0 data-y=0 class="workspace-cont">
          <div class="frame-cont">
             <img class="frame-image" style="height: ${frameHeight}%" src="${frameUrl}">
          </div>
@@ -77,6 +79,7 @@
          <div class="screenshot-cont">
             <img class.bind="screenshotUrl ? '' : 'hidden'" class="screenshot-image draggable" style="height: ${screenshotHeight}px; width: ${screenshotWidth}px; border-radius: ${screenshotRadius}px;" src="${screenshotUrl}">
          </div>
+      </div>
       </div>
    </div>
    <div class="right-pane centered box">

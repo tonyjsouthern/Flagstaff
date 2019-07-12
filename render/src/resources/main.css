@@ -287,12 +287,12 @@ input:checked + .slider-switch:before {
 
 /* PREVIEW STYLES BEGIN */
 .workspace-cont {
-  height: 98%;
-  width: 98%;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
   border: solid 1px lightgrey;
   margin: 0px auto;
-  overflow: hidden;
-  position: relative;
+  min-width: 20%;
 }
 
 .frame-cont {
@@ -316,6 +316,7 @@ input:checked + .slider-switch:before {
   width: 100%;
   position: absolute;
   top: 0px;
+  overflow: hidden;
 }
 
 .background-image {
@@ -331,3 +332,23 @@ input:checked + .slider-switch:before {
   z-index: 2;
 }
 /* PREVIEW STYLES END */
+
+/* ----- RESIZER CSS BEGIN ----- */
+.resize-cont{
+  height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+}
+
+.resize-left{
+  height: 60px;
+  width: 10px;
+  position: absolute;
+  left: -9px;
+  z-index: 7;
+  border-radius: 5px 0px 0px 5px;
+  top: 47%;
+  background: #FF3CAC;
+}
+/* ----- RESIZER CSS END ----- */

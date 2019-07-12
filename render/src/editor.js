@@ -21,6 +21,7 @@ export class Editor {
 
     activate() {
       this.makeDraggable();
+      this.makeResizable();
     }
 
     selectFrame() {
@@ -60,7 +61,7 @@ export class Editor {
       var filters = {
           filters: [{
               name: 'Images',
-              extensions: ['png']
+              extensions: ['png', 'gif']
           }]
       }
       window.remote.dialog.showOpenDialog(window.remote.getCurrentWindow(), filters,
@@ -87,6 +88,32 @@ export class Editor {
           },
         }
       })
+    }
+
+    makeResizable(){
+      interact('.resizable')
+  .resizable({
+    edges: {
+      top   : '.resize-top',
+      left  : '.resize-left',
+      bottom: '.resize-bottom',
+      right : '.resize-right'
+    },
+  })
+  .on('resizemove', event => {
+    let { x, y } = event.target.dataset
+
+    x = parseFloat(x) || 0
+    y = parseFloat(y) || 0
+
+    Object.assign(event.target.style, {
+      width: `${event.rect.width}px`,
+      height: `${event.rect.height}px`,
+      transform: `translate(${event.deltaRect.left}px, ${event.deltaRect.top}px)`
+    })
+
+    Object.assign(event.target.dataset, { x, y })
+  })
     }
 
     frameToggle(){
